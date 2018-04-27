@@ -1,17 +1,38 @@
 <template>
     <div>
-        <Menu mode="horizontal" :theme="theme1" active-name="1" @on-select="selectMenu">
-            <MenuItem name="1">
-                <Icon type="ios-paper"></Icon>
-                账户设置
-            </MenuItem>
+        <Menu mode="horizontal" :theme="theme1" active-name="/product/list" @on-select="selectMenu">
+            <Submenu name="product">
+                <template slot="title">
+                    <Icon type="stats-bars"></Icon>
+                    商品
+                </template>
+                <MenuItem name="/">列表</MenuItem>
+                <MenuItem name="/product/add">创建</MenuItem>
+            </Submenu>
+            <Submenu name="shop">
+                <template slot="title">
+                    <Icon type="stats-bars"></Icon>
+                    商家
+                </template>
+                <MenuItem name="/shop/list">列表</MenuItem>
+                <MenuItem name="/shop/add">创建</MenuItem>
+            </Submenu>
             <Submenu name="3">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
-                    比价
+                    交易
                 </template>
-                <MenuItem name="/" on-select="selectMenu">比价列表</MenuItem>
-                <MenuItem name="/addlog">新增记录</MenuItem>
+                <MenuItem name="/orders/new">最新订单</MenuItem>
+                <MenuItem name="/orders/list">订单列表</MenuItem>
+                <MenuItem name="/orders/chart">交易走势</MenuItem>
+            </Submenu>
+            <Submenu name="4">
+                <template slot="title">
+                    <Icon type="stats-bars"></Icon>
+                    商品审核
+                </template>
+                <MenuItem name="/review/todo">待审核列表</MenuItem>
+                <MenuItem name="/review/reject">驳回列表</MenuItem>
             </Submenu>
         </Menu>
         <router-view></router-view>
@@ -35,6 +56,9 @@
                 console.log(name);
                 console.log(this.$router)
                 this.$router.push(name)
+            },
+            selectMenu1(){
+                console.log(1111)
             }
         }
     };

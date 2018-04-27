@@ -1,6 +1,6 @@
 <style scoped>
     .form_outer{
-        overflow: hidden;
+        padding-top: 1px;
     }
     .add_form{
         margin:100px auto 0;
@@ -21,12 +21,28 @@
             <FormItem label="商品价格">
                 <Input v-model="product.price" placeholder="输入商品价格..."></Input>
             </FormItem>
-            <Button type="success" long>提交</Button>
+            <FormItem label="商品图片">
+                <Switch v-model="product.hasImg" @on-change="change"></Switch>
+                <Upload
+                        v-if="product.hasImg"
+                        :before-upload="handleUpload"
+                        multiple
+                        type="select"
+                        action="//jsonplaceholder.typicode.com/posts/">
+                    <div style="padding: 20px 0">
+                        <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+                        <p>点击或拖拽即可上传图片</p>
+                    </div>
+                </Upload>
+                <img v-if="product.hasImg" :src="previewImg" style="width: 200px;height: 200px;"/>
+            </FormItem>
+            <Button type="success" long @click="getCode">提交</Button>
+            <Button type="success" long @click="getLog">获取日志</Button>
         </Form>
     </div>
-
 </template>
 <script>
+    import Util from '../libs/util'
     export default{
         data:function (){
             return{
@@ -34,8 +50,54 @@
                     name:'',
                     scaleName:'',
                     price:'',
-                    date:''
-                }
+                    date:'',
+                    hasImg:true
+                },
+                files:[],
+                previewImg:''
+            }
+        },
+        methods:{
+            handleUpload(file){
+                console.log(file);
+                this.files.push(file);
+                let reader=new FileReader();
+                let _this=this;
+                reader.onload= function (e) {
+                    _this.previewImg=e.target.result
+                };
+                reader.readAsDataURL(file);
+                return false
+            },
+            getCode(){
+                Util.ajax({
+                    method:'get',
+                    url:'http://192.168.31.204:8090/portal/smsCode',
+                    params:{
+                        phone:'18030638805'
+                    }
+                }).then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    console.log(err.message)
+                })
+            },
+            getLog(){
+                Util.ajax({
+                    method:'get',
+                    url:'http://192.168.31.204:8090/portal/smsLog',
+                    params:{
+                        page:1,
+                        pageSize:10
+                    }
+                }).then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    console.log(err.message)
+                })
+            },
+            change(status){
+                console.log(status)
             }
         }
     }
