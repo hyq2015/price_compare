@@ -1,20 +1,21 @@
 <style scoped lang="less">
     .chart_page{
-        margin-top:100px;
+        margin:0 auto 0;
+        background-color: #ffffff;
+        width:80%;
+        max-width:1480px;
     }
     .chart_outer{
-        width:80%;
         height: 440px;
         padding: 20px;
         box-sizing: border-box;
         background-color: #ffffff;
         margin:0 auto;
         border-radius: 4px;
-        box-shadow: 0 1px 2px rgba(150,150,150,0.3);
+        /*box-shadow: 0 1px 2px rgba(150,150,150,0.3);*/
         position: relative;
     }
     .query_part{
-        width:80%;
         box-sizing: border-box;
         background-color: #ffffff;
         margin:2px auto 0;
@@ -22,6 +23,15 @@
         padding: 20px;
         box-shadow: 0 1px 2px rgba(150,150,150,0.3);
         border-bottom:1px solid #eeeeee;
+    }
+    .table_outer{
+        overflow: hidden;
+        margin:0 auto;
+    }
+    .table_title{
+        font-size: 20px;
+        padding:30px 15px 15px 15px;
+        box-sizing: border-box;
     }
 </style>
 <template>
@@ -41,10 +51,10 @@
                     <!--</Row>-->
                 </FormItem>
                 <FormItem label="时间">
-                    <DatePicker type="daterange" :options="options2" placement="bottom-start" placeholder="选择日期" style="width: 200px"></DatePicker>
+                    <DatePicker @on-change="changeDate" type="daterange" :options="options2" placement="bottom-start" placeholder="选择日期" style="width: 200px"></DatePicker>
                 </FormItem>
                 <FormItem>
-                    <Button type="success">查询</Button>
+                    <Button type="success" @click="queryData">查询</Button>
                 </FormItem>
             </Form>
         </div>
@@ -53,10 +63,60 @@
 
             </div>
         </div>
+        <div class="table_outer">
+            <div class="table_title">详细数据</div>
+            <Table :columns="columns1" :data="data1"></Table>
+        </div>
     </div>
 </template>
 <script>
+    import Vuex from 'vuex'
+    import Util from '../libs/util'
+    import {mapState} from 'vuex'
+    const store = new Vuex.Store({
+        state:{
+            columns1:[
+                {
+                    title:'时间',
+                    key:'date'
+                },
+                {
+                    title:'总金额',
+                    key:'totalAmount',
+//                    render:(h,params)=>{
+//                        return h('div',{
+//                            domProps:{
+//                                innerHTML:params.row.totalAmount
+//                            },
+//                            style:{
+//                                textAlign:'right'
+//                            }
+//                        })
+//                    },
+                    align:'right'
+                }
+            ],
+            data1:[
+                {
+                    date:'2018-04-21',
+                    totalAmount:100
+                }
+            ],
+            date:'2018-04-21 - 2018-04-28'
+        },
+        mutations:{
+            changeDate(state,newDate){
+                state.date=newDate
+            }
+        }
+    });
     export default{
+        store,
+        computed: mapState({
+            columns1:state=>state.columns1,
+            data1:state=>state.data1,
+            date:state=>state.date,
+        }),
         data(){
             return{
                 options2: {
@@ -123,6 +183,14 @@
                     }]
                 });
             }, 100);
+        },
+        methods:{
+            queryData(){
+                store.commit('changeDate',store.state.date)
+            },
+            changeDate(date){
+                console.log(date)
+            }
         }
     }
 </script>

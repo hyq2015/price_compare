@@ -30,7 +30,7 @@ const routers = [
     {
         path: '/orders/chart',
         meta: {
-            title: '订单列表'
+            title: '交易走势'
         },
         component: (resolve) => require(['./views/orderchart.vue'], resolve)
     }
