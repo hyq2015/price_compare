@@ -13,13 +13,13 @@
         margin-top:-10px;
         cursor: pointer;
     }
+    .btn{
+        width:100px;
+    }
 </style>
 <template>
     <div class="form_outer">
         <Form :label-width="120" class="add_form">
-            <FormItem label="日期">
-                <DatePicker type="date" placeholder="选择日期" style="width: 200px"></DatePicker>
-            </FormItem>
             <FormItem label="商品名称">
                 <Input v-model="product.name" placeholder="输入商品名称..."></Input>
             </FormItem>
@@ -28,7 +28,7 @@
                     <Input v-model="item.name" placeholder="输入商品规格/型号..."></Input>
                 </FormItem>
                 <FormItem label="商品价格">
-                    <Input v-model="item.price" placeholder="输入规格价格..."></Input>
+                    <InputNumber style="width: 100%" :min="0.1" v-model="item.price" placeholder="输入规格价格..."></InputNumber>
                 </FormItem>
                 <div class="del_icon" @click="deleteScale(index,$event)">
                     <Tooltip content="删除此规格" placement="right">
@@ -82,8 +82,8 @@
                 <!--<img v-if="product.hasImg" :src="previewImg" style="width: 200px;height: 200px;"/>-->
             </FormItem>
             <FormItem>
-                <Button type="success"  @click="saveData">提交</Button>
-                <Button type="primary"  @click="previewData">预览</Button>
+                <Button type="success" class="btn" @click="saveData">提交</Button>
+                <Button type="primary" class="btn" @click="previewData">预览</Button>
             </FormItem>
         </Form>
     </div>
@@ -99,7 +99,7 @@
                 scaleDto:[
                     {
                         name:'',
-                        price:'',
+                        price:0.1,
                         originPrice:''
                     }
                 ],
@@ -126,7 +126,7 @@
             addScale(state){
                 state.product.scaleDto.push({
                     name:'',
-                    price:'',
+                    price:0.1,
                     originPrice:''
                 })
             },

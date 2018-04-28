@@ -209,38 +209,7 @@
 //            }).catch(err => {
 //                console.log(err.message)
 //            });
-            let echarts = require('echarts');
 
-            // 基于准备好的dom，初始化echarts实例
-            setTimeout(() => {
-//                let myChart = echarts.init(document.getElementById('main'));
-                // 绘制图表
-//                myChart.setOption({
-//                    title: {
-//                        text: '最近一周价格趋势'
-//                    },
-//                    grid: {
-//                        left: '3%',
-//                        right: '4%',
-//                        bottom: '3%',
-//                        containLabel: true
-//                    },
-//                    tooltip: {
-//                        trigger: 'axis'
-//                    },
-//                    xAxis: {
-//                        type: 'category',
-//                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-//                    },
-//                    yAxis: {
-//                        type: 'value'
-//                    },
-//                    series: [{
-//                        data: [820, 932, 901, 934, 1290, 1330, 1320],
-//                        type: 'line'
-//                    }]
-//                });
-            }, 100);
 
         },
         methods: {

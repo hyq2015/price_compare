@@ -2,9 +2,9 @@ const routers = [
     {
         path: '/',
         meta: {
-            title: '欢迎使用'
+            title: '商品列表'
         },
-        component: (resolve) => require(['./views/index.vue'], resolve)
+        component: (resolve) => require(['./views/productList.vue'], resolve)
     },
     {
         path: '/addlog',
@@ -19,6 +19,20 @@ const routers = [
             title: '创建商品'
         },
         component: (resolve) => require(['./views/createProduct.vue'], resolve)
+    },
+    {
+        path: '/orders/list',
+        meta: {
+            title: '订单列表'
+        },
+        component: (resolve) => require(['./views/orderlist.vue'], resolve)
+    },
+    {
+        path: '/orders/chart',
+        meta: {
+            title: '订单列表'
+        },
+        component: (resolve) => require(['./views/orderchart.vue'], resolve)
     }
 
 ];

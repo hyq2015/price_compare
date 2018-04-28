@@ -22,7 +22,6 @@
                     <Icon type="stats-bars"></Icon>
                     交易
                 </template>
-                <MenuItem name="/orders/new">最新订单</MenuItem>
                 <MenuItem name="/orders/list">订单列表</MenuItem>
                 <MenuItem name="/orders/chart">交易走势</MenuItem>
             </Submenu>
