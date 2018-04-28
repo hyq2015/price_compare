@@ -7,7 +7,7 @@
                     商品
                 </template>
                 <MenuItem name="/">列表</MenuItem>
-                <MenuItem name="/product/add">创建</MenuItem>
+                <MenuItem name="/product/create">创建</MenuItem>
             </Submenu>
             <Submenu name="shop">
                 <template slot="title">

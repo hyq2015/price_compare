@@ -33,16 +33,16 @@
     <div>
         <Table :columns="columns1" :data="data1"></Table>
         <!--<Row type="flex" justify="center" align="middle">-->
-            <!--<Col span="24">-->
-            <!--<h2>-->
-                <!--<p>Welcome to your app!</p>-->
-                <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
-            <!--</h2>-->
-            <!--<p>当前数字:{{count}}</p>-->
-            <!--<i-button type="primary" @click="increment">increment</i-button>-->
-            <!--<i-button type="primary" @click="decrement">decrement</i-button>-->
-            <!--<div id="main" style="width: 100%;height: 300px;background-color: #00c8fb"></div>-->
-            <!--</Col>-->
+        <!--<Col span="24">-->
+        <!--<h2>-->
+        <!--<p>Welcome to your app!</p>-->
+        <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
+        <!--</h2>-->
+        <!--<p>当前数字:{{count}}</p>-->
+        <!--<i-button type="primary" @click="increment">increment</i-button>-->
+        <!--<i-button type="primary" @click="decrement">decrement</i-button>-->
+        <!--<div id="main" style="width: 100%;height: 300px;background-color: #00c8fb"></div>-->
+        <!--</Col>-->
         <!--</Row>-->
     </div>
 </template>
@@ -53,7 +53,117 @@
 
     const store = new Vuex.Store({
         state: {
-            count: 0
+            count: 0,
+            columns1: [
+                {
+                    title: '商品名称',
+                    key: 'name'
+                },
+                {
+                    title: '商品主图',
+                    key: 'imgurl',
+                    width:140,
+                    height:140,
+                    render: (h, params) => {
+//                        console.log(params)
+                        return h('img', {
+                            domProps: {
+                                src: params.row.imgurl+'?imageMogr2/thumbnail/!200x200r/gravity/Center/crop/200x200',
+                            },
+                            style: {width:'100px',height:'100px',margin:'10px 0'}
+                        })
+                    }
+                },
+                {
+                    title: '视频',
+                    key: 'video',
+                    width:100
+                },
+                {
+                    title: '销量',
+                    key: 'sale',
+                    width: 100
+                },
+                {
+                    title: '评论',
+                    key: 'comment',
+                    width: 100
+                },
+                {
+                    title: '创建时间',
+                    key: 'creation',
+                    width: 200
+                },
+                {
+                    title: '所属商家',
+                    key: 'vendor'
+                },
+                {
+                    title: '质检员',
+                    key: 'reviewer',
+                    width: 140
+                },
+                {
+                    title: '操作',
+                    key: 'options',
+                    render: (h, params) => {
+                        return h('div', [
+                            h('Button', {
+                                props: {
+                                    type: 'text',
+                                    size: 'small'
+                                },
+                                on:{
+                                    'click':(e)=>{
+                                        console.log(e)
+                                        store.commit('optionClick')
+                                    }
+                                }
+                            }, '详情'),
+                            h('Button', {
+                                props: {
+                                    type: 'text',
+                                    size: 'small'
+                                }
+                            }, '编辑'),
+                            h('Button', {
+                                props: {
+                                    type: 'text',
+                                    size: 'small'
+                                }
+                            }, '删除'),
+                            h('Button', {
+                                props: {
+                                    type: 'text',
+                                    size: 'small'
+                                }
+                            }, '下架')
+                        ]);
+                    }
+                }
+            ],
+            data1: [
+                {
+                    name: '测试',
+                    imgurl: 'http://cdn.genwoshua.com/o_1bq6pqk191vcqc6278h4hoe2r14f.jpg',
+                    video: '测试',
+                    sale: 12,
+                    comment: '23',
+                    creation: '2018-04-12',
+                    vendor: '测试',
+                    reviewer: '测试'
+                },
+                {
+                    name: '测试',
+                    imgurl: 'http://cdn.genwoshua.com/o_1bq6pqk191vcqc6278h4hoe2r14f.jpg',
+                    video: '测试',
+                    sale: 12,
+                    comment: '23',
+                    creation: '2018-04-12',
+                    vendor: '测试',
+                    reviewer: '测试'
+                }
+            ]
         },
         mutations: {
             increment(state) {
@@ -61,6 +171,9 @@
             },
             decrement(state) {
                 state.count -= 1
+            },
+            optionClick(){
+                console.log('option click')
             }
         }
     });
@@ -70,101 +183,10 @@
 //                return store.state.count
 //            }
 //        },
-        data(){
-            return{
-                columns1: [
-                    {
-                        title: '商品名称',
-                        key: 'name'
-                    },
-                    {
-                        title: '商品主图',
-                        key: 'imgurl',
-                        render:(h,params)=>{
-                            return h('img',{
-                                props:{
-                                    src:params
-                                }
-                            })
-                        }
-                    },
-                    {
-                        title: '视频',
-                        key: 'video'
-                    },
-                    {
-                        title: '销量',
-                        key: 'sale',
-                        width:100
-                    },
-                    {
-                        title: '评论',
-                        key: 'comment',
-                        width:100
-                    },
-                    {
-                        title: '创建时间',
-                        key: 'creation',
-                        width:200
-                    },
-                    {
-                        title: '所属商家',
-                        key: 'vendor'
-                    },
-                    {
-                        title: '质检员',
-                        key: 'reviewer',
-                        width:140
-                    },
-                    {
-                        title: '操作',
-                        key: 'options',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'text',
-                                        size: 'small'
-                                    }
-                                }, '详情'),
-                                h('Button', {
-                                    props: {
-                                        type: 'text',
-                                        size: 'small'
-                                    }
-                                }, '编辑'),
-                                h('Button', {
-                                    props: {
-                                        type: 'text',
-                                        size: 'small'
-                                    }
-                                }, '删除'),
-                                h('Button', {
-                                    props: {
-                                        type: 'text',
-                                        size: 'small'
-                                    }
-                                }, '下架')
-                            ]);
-                        }
-                    }
-                ],
-                data1:[
-                    {
-                        name:'测试',
-                        imgurl:'http://cdn.genwoshua.com/o_1bq6pqk191vcqc6278h4hoe2r14f.jpg',
-                        video:'测试',
-                        sale:12,
-                        comment:'23',
-                        creation:'2018-04-12',
-                        vendor:'测试',
-                        reviewer:'测试'
-                    }
-                ]
-            }
-        },
         computed: mapState({
-            count: state => state.count
+            count: state => state.count,
+            columns1:state=>state.columns1,
+            data1:state=>state.data1
         }),
         store,
         created: () => {
@@ -190,7 +212,7 @@
             let echarts = require('echarts');
 
             // 基于准备好的dom，初始化echarts实例
-            setTimeout(()=>{
+            setTimeout(() => {
 //                let myChart = echarts.init(document.getElementById('main'));
                 // 绘制图表
 //                myChart.setOption({
@@ -218,7 +240,7 @@
 //                        type: 'line'
 //                    }]
 //                });
-            },100);
+            }, 100);
 
         },
         methods: {

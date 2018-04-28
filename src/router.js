@@ -12,6 +12,13 @@ const routers = [
             title: '添加记录'
         },
         component: (resolve) => require(['./views/addlog.vue'], resolve)
+    },
+    {
+        path: '/product/create',
+        meta: {
+            title: '创建商品'
+        },
+        component: (resolve) => require(['./views/createProduct.vue'], resolve)
     }
 
 ];
