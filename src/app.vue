@@ -1,5 +1,30 @@
+<style lang="less">
+    .admin_user{
+        position: absolute;
+        top:10px;
+        right:10px;
+        color: #ffffff;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .admin_name,.complete_profile{
+            cursor: pointer;
+            text-align: left;
+            min-width:50px;
+        }
+        .admin_name{
+            font-size: 16px;
+        }
+        .complete_profile{
+            color: #00c8fb;
+        }
+    }
+
+</style>
 <template>
-    <div>
+    <div style="position: relative;">
         <Menu mode="horizontal" :theme="theme1" active-name="/product/list" @on-select="selectMenu">
             <Submenu name="product">
                 <template slot="title">
@@ -15,7 +40,7 @@
                     商家
                 </template>
                 <MenuItem name="/shop/list">列表</MenuItem>
-                <MenuItem name="/shop/add">创建</MenuItem>
+                <MenuItem name="/shop/create">创建</MenuItem>
             </Submenu>
             <Submenu name="3">
                 <template slot="title">
@@ -34,15 +59,25 @@
                 <MenuItem name="/review/reject">驳回列表</MenuItem>
             </Submenu>
         </Menu>
+        <div class="admin_user">
+            <div class="admin_name" v-text="userName"></div>
+            <div class="complete_profile">完善信息</div>
+        </div>
         <router-view></router-view>
     </div>
 </template>
 <script>
+    import {mapState,mapGetters} from 'vuex'
     export default {
         data() {
             return {
                 theme1: 'dark'
             };
+        },
+        computed:{
+            ...mapGetters({
+                userName: 'main_userName'
+            })
         },
         mounted() {
 

@@ -6,10 +6,10 @@ import Vuex from 'vuex'
 import Util from './libs/util';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
-
+import store from './store'
 
 Vue.use(VueRouter);
-Vue.use(Vuex);
+// Vue.use(Vuex);
 
 
 Vue.use(iView);
@@ -38,5 +38,6 @@ router.afterEach(() => {
 new Vue({
     el: '#app',
     router: router,
+    store,
     render: h => h(App)
 });

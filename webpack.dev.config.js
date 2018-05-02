@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
 const fs = require('fs');
-
+const { VueLoaderPlugin } = require('vue-loader')
 fs.open('./src/config/env.js', 'w', function(err, fd) {
     const buf = 'export default "development";';
     fs.write(fd, buf, 0, buf.length, 0, function(err, written, buffer) {});
@@ -18,6 +18,7 @@ module.exports = merge(webpackBaseConfig, {
         chunkFilename: '[name].chunk.js'
     },
     plugins: [
+
         new ExtractTextPlugin({
             filename: '[name].css',
             allChunks: true
@@ -30,6 +31,6 @@ module.exports = merge(webpackBaseConfig, {
             filename: '../index.html',
             template: './src/template/index.ejs',
             inject: false
-        })
+        }),
     ]
 });

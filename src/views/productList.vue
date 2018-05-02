@@ -38,9 +38,9 @@
         <!--<p>Welcome to your app!</p>-->
         <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
         <!--</h2>-->
-        <!--<p>当前数字:{{count}}</p>-->
-        <!--<i-button type="primary" @click="increment">increment</i-button>-->
-        <!--<i-button type="primary" @click="decrement">decrement</i-button>-->
+        <p>当前数字:{{count}}</p>
+        <i-button type="primary" @click="increment">increment</i-button>
+        <i-button type="primary" @click="decrement">decrement</i-button>
         <!--<div id="main" style="width: 100%;height: 300px;background-color: #00c8fb"></div>-->
         <!--</Col>-->
         <!--</Row>-->
@@ -49,7 +49,7 @@
 <script>
     import Vuex from 'vuex'
     import Util from '../libs/util'
-    import {mapState} from 'vuex'
+    import {mapState,mapGetters} from 'vuex'
 
     const store = new Vuex.Store({
         state: {
@@ -183,14 +183,24 @@
 //                return store.state.count
 //            }
 //        },
-        computed: mapState({
-            count: state => state.count,
-            columns1:state=>state.columns1,
-            data1:state=>state.data1
-        }),
-        store,
+//        computed: mapState({
+//            count: state => state.count,
+//            columns1:state=>state.columns1,
+//            data1:state=>state.data1
+//        }),
+//        store,
+        computed:{
+            ...mapGetters({
+                columns1: 'columns1',
+                data1: 'data1',
+                count: 'count'
+            })
+        },
         created: () => {
-//            console.log(this.$store)
+            setTimeout(()=>{
+                console.log(this)
+            },500)
+
 //            Util.ajax({
 //                method: 'get',
 //                url: 'http://demo.renren.io/renren-fast//sys/user/list',
@@ -220,12 +230,16 @@
                 });
             },
             increment() {
-                store.commit('increment');
-                console.log(store.state.count); // -> 1
+//                store.commit('increment');
+//                console.log(store.state.count); // -> 1
+                this.$store.dispatch('increment')
+                console.log(this.$store)
+                this.$store.dispatch('reviseUserName','敦敦')
             },
             decrement() {
-                store.commit('decrement');
-                console.log(store.state.count); // -> 1
+                this.$store.dispatch('decrement')
+//                store.commit('decrement');
+//                console.log(store.state.count); // -> 1
             }
         }
     };

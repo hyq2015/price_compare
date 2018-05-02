@@ -33,6 +33,13 @@ const routers = [
             title: '交易走势'
         },
         component: (resolve) => require(['./views/orderchart.vue'], resolve)
+    },
+    {
+        path: '/shop/create',
+        meta: {
+            title: '创建商家'
+        },
+        component: (resolve) => require(['./views/createshop.vue'], resolve)
     }
 
 ];
