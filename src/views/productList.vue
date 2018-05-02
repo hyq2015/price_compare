@@ -38,6 +38,7 @@
         <!--<p>Welcome to your app!</p>-->
         <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
         <!--</h2>-->
+        <Input v-model="globalUserName"/>
         <p>当前数字:{{count}}</p>
         <i-button type="primary" @click="increment">increment</i-button>
         <i-button type="primary" @click="decrement">decrement</i-button>
@@ -196,6 +197,11 @@
                 count: 'count'
             })
         },
+        data(){
+            return{
+                globalUserName:'瓜牛'
+            }
+        },
         created: () => {
             setTimeout(()=>{
                 console.log(this)
@@ -234,7 +240,7 @@
 //                console.log(store.state.count); // -> 1
                 this.$store.dispatch('increment')
                 console.log(this.$store)
-                this.$store.dispatch('reviseUserName','敦敦')
+                this.$store.dispatch('reviseUserName',this.globalUserName)
             },
             decrement() {
                 this.$store.dispatch('decrement')

@@ -40,6 +40,27 @@ const routers = [
             title: '创建商家'
         },
         component: (resolve) => require(['./views/createshop.vue'], resolve)
+    },
+    {
+        path: '/shop/list',
+        meta: {
+            title: '商家列表'
+        },
+        component: (resolve) => require(['./views/shoplist.vue'], resolve)
+    },
+    {
+        path: '/review/todo',
+        meta: {
+            title: '待审核列表'
+        },
+        component: (resolve) => require(['./views/toreview.vue'], resolve)
+    },
+    {
+        path: '/review/reject',
+        meta: {
+            title: '驳回列表'
+        },
+        component: (resolve) => require(['./views/rejectproductlist.vue'], resolve)
     }
 
 ];
