@@ -7,6 +7,7 @@ import main from './modules/main_module'
 import shoplist from './modules/shoplist_module'
 import toreviewlist from './modules/toreviewlist_module'
 import rejectproductlist from './modules/rejectproductlist_module'
+import login from './modules/login_module'
 // import createLogger from '../../../src/plugins/logger'
 
 Vue.use(Vuex);
@@ -21,7 +22,8 @@ export default new Vuex.Store({
         main,
         shoplist,
         toreviewlist,
-        rejectproductlist
+        rejectproductlist,
+        login
 
     },
     // strict: debug,

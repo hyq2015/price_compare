@@ -25,7 +25,7 @@
 </style>
 <template>
     <div style="position: relative;">
-        <Menu mode="horizontal" :theme="theme1" active-name="/product/list" @on-select="selectMenu">
+        <Menu v-if="showMenu" mode="horizontal" :theme="theme1" active-name="/product/list" @on-select="selectMenu">
             <Submenu name="product">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
@@ -58,11 +58,11 @@
                 <MenuItem name="/review/todo">待审核列表</MenuItem>
                 <MenuItem name="/review/reject">驳回列表</MenuItem>
             </Submenu>
+            <div class="admin_user">
+                <div class="admin_name" v-text="userName"></div>
+                <div class="complete_profile">完善信息</div>
+            </div>
         </Menu>
-        <div class="admin_user">
-            <div class="admin_name" v-text="userName"></div>
-            <div class="complete_profile">完善信息</div>
-        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -76,7 +76,8 @@
         },
         computed:{
             ...mapGetters({
-                userName: 'main_userName'
+                userName: 'main_userName',
+                showMenu: 'main_showMenu',
             })
         },
         mounted() {

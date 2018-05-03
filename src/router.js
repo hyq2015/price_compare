@@ -61,6 +61,13 @@ const routers = [
             title: '驳回列表'
         },
         component: (resolve) => require(['./views/rejectproductlist.vue'], resolve)
+    },
+    {
+        path: '/login',
+        meta: {
+            title: '登录'
+        },
+        component: (resolve) => require(['./views/login.vue'], resolve)
     }
 
 ];

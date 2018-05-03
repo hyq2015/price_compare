@@ -25,7 +25,7 @@
                 count:'orderlist_count'
             })
         },
-        created:()=>{
+        created(){
 //            orderlist_
         },
         methods:{

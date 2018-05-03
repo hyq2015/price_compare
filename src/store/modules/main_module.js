@@ -1,9 +1,13 @@
 const state={
-    userName:'瓜牛1'
+    userName:'瓜牛1',
+    showMenu:false
 };
 const getters={
     main_userName:(state,getters,rootState)=>{
         return state.userName
+    },
+    main_showMenu:(state,getters,rootState)=>{
+        return state.showMenu
     }
 };
 const actions={
@@ -13,6 +17,9 @@ const actions={
     reviseUserName({state,commit},newName){
         console.log(newName)
         commit('reviseUserName',newName)
+    },
+    changeMenuStatus({state,commit},newStatus){
+        commit('changeMenuStatus',newStatus)
     }
 };
 const mutations={
@@ -21,6 +28,9 @@ const mutations={
     },
     reviseUserName(state,newName){
         state.userName=newName
+    },
+    changeMenuStatus(state,newStatus){
+        state.showMenu=newStatus
     }
 };
 export default {

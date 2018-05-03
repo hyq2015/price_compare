@@ -144,7 +144,7 @@
                 vendor:'全部'
             }
         },
-        created:()=>{
+        created(){
             let echarts = require('echarts');
 
             // 基于准备好的dom，初始化echarts实例
