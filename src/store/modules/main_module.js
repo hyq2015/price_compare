@@ -1,6 +1,6 @@
 const state={
     userName:'瓜牛1',
-    showMenu:false
+    showMenu:true
 };
 const getters={
     main_userName:(state,getters,rootState)=>{

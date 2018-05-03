@@ -38,10 +38,10 @@
         <!--<p>Welcome to your app!</p>-->
         <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
         <!--</h2>-->
-        <Input v-model="globalUserName"/>
-        <p>当前数字:{{count}}</p>
-        <i-button type="primary" @click="increment">increment</i-button>
-        <i-button type="primary" @click="decrement">decrement</i-button>
+        <!--<Input v-model="globalUserName"/>-->
+        <!--<p>当前数字:{{count}}</p>-->
+        <!--<i-button type="primary" @click="increment">increment</i-button>-->
+        <!--<i-button type="primary" @click="decrement">decrement</i-button>-->
         <!--<div id="main" style="width: 100%;height: 300px;background-color: #00c8fb"></div>-->
         <!--</Col>-->
         <!--</Row>-->

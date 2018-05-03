@@ -35,7 +35,7 @@
                     <div class="welcome_txt"></div>
                 </FormItem>
                 <FormItem prop="phone" style="margin-top: 50px;">
-                    <Input type="text" v-model="formInline.phone" placeholder="手机号" maxlength="11">
+                    <Input type="text" v-model="formInline.phone" placeholder="手机号" :maxlength="maxLength">
                         <Icon type="android-phone-portrait" slot="prepend"></Icon>
                     </Input>
                 </FormItem>
@@ -64,6 +64,7 @@
                     phone: '',
                     password: ''
                 },
+                maxLength:11,
                 ruleInline: {
                     phone: [
                         { required: true, message: '请输入手机号', trigger: 'blur' },
@@ -84,13 +85,14 @@
         },
         methods:{
             handleSubmit(name) {
-                this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        this.$Message.success('Success!');
-                    } else {
-                        this.$Message.error('Fail!');
-                    }
-                })
+//                this.$refs[name].validate((valid) => {
+//                    if (valid) {
+//                        this.$Message.success('Success!');
+//                    } else {
+//                        this.$Message.error('Fail!');
+//                    }
+//                })
+                this.$router.replace('/')
             }
         }
     }
