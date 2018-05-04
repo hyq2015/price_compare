@@ -1,6 +1,6 @@
 const routers = [
     {
-        path: '/',
+        path: '/product/list',
         meta: {
             title: '商品列表'
         },
@@ -63,7 +63,7 @@ const routers = [
         component: (resolve) => require(['./views/rejectproductlist.vue'], resolve)
     },
     {
-        path: '/login',
+        path: '/',
         meta: {
             title: '登录'
         },

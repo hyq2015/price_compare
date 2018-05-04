@@ -31,7 +31,7 @@
                     <Icon type="stats-bars"></Icon>
                     商品
                 </template>
-                <MenuItem name="/">列表</MenuItem>
+                <MenuItem name="/product/list">列表</MenuItem>
                 <MenuItem name="/product/create">创建</MenuItem>
             </Submenu>
             <Submenu name="shop">
