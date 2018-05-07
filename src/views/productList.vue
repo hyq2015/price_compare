@@ -95,7 +95,7 @@
 //            }).catch(err => {
 //                console.log(err.message)
 //            });
-
+            this.$store.dispatch('changeMenuStatus',true)
 
         },
         methods: {
