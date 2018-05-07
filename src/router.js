@@ -63,7 +63,7 @@ const routers = [
         component: (resolve) => require(['./views/rejectproductlist.vue'], resolve)
     },
     {
-        path: '/portal/',
+        path: '/portal',
         meta: {
             title: '登录'
         },
