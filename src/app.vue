@@ -31,32 +31,32 @@
                     <Icon type="stats-bars"></Icon>
                     商品
                 </template>
-                <MenuItem name="/product/list">列表</MenuItem>
-                <MenuItem name="/product/create">创建</MenuItem>
+                <MenuItem name="/portal/product/list">列表</MenuItem>
+                <MenuItem name="/portal/product/create">创建</MenuItem>
             </Submenu>
             <Submenu name="shop">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
                     商家
                 </template>
-                <MenuItem name="/shop/list">列表</MenuItem>
-                <MenuItem name="/shop/create">创建</MenuItem>
+                <MenuItem name="/portal/shop/list">列表</MenuItem>
+                <MenuItem name="/portal/shop/create">创建</MenuItem>
             </Submenu>
             <Submenu name="3">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
                     交易
                 </template>
-                <MenuItem name="/orders/list">订单列表</MenuItem>
-                <MenuItem name="/orders/chart">交易走势</MenuItem>
+                <MenuItem name="/portal/orders/list">订单列表</MenuItem>
+                <MenuItem name="/portal/orders/chart">交易走势</MenuItem>
             </Submenu>
             <Submenu name="4">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
                     商品审核
                 </template>
-                <MenuItem name="/review/todo">待审核列表</MenuItem>
-                <MenuItem name="/review/reject">驳回列表</MenuItem>
+                <MenuItem name="/portal/review/todo">待审核列表</MenuItem>
+                <MenuItem name="/portal/review/reject">驳回列表</MenuItem>
             </Submenu>
         </Menu>
         <div class="admin_user" v-if="showMenu">
