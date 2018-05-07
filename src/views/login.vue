@@ -92,7 +92,7 @@
 //                        this.$Message.error('Fail!');
 //                    }
 //                })
-                this.$router.replace('/product/list');
+                this.$router.push('/product/list');
             }
         }
     }
