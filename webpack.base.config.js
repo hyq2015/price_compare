@@ -73,8 +73,12 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.vue'],
-        alias: {
-            'vue': 'vue/dist/vue.esm.js'
-        }
+        // alias: {
+        //     'vue': 'vue/dist/vue.esm.js'
+        // }
+    },
+    externals : {
+        Vue: 'vue',
+        iview:'iview'
     }
 };
