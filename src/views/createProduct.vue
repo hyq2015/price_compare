@@ -91,61 +91,32 @@
 <script>
     import Vuex from 'vuex'
     import Util from '../libs/util'
-    import {mapState} from 'vuex'
-    const store=new Vuex.Store({
-        state:{
-            product:{
-                name:'',
-                scaleDto:[
-                    {
-                        name:'',
-                        price:0.1,
-                        originPrice:''
-                    }
-                ],
-                imgurl:'',
-                detailImgs:[],
-                video:'',
-                hasVideo:true,
-                belongShop:{
-                    id:'',
-                    name:''
-                }
-            }
-        },
-        mutations:{
-            handleUpload(){
-
-            },
-            saveData(){
-
-            },
-            previewData(){
-
-            },
-            addScale(state){
-                state.product.scaleDto.push({
-                    name:'',
-                    price:0.1,
-                    originPrice:''
-                })
-            },
-            deleteScale(state,index){
-                state.product.scaleDto.splice(index,1)
-            }
-        }
-    });
+    import {mapState,mapGetters} from 'vuex'
     export default {
-        computed: mapState({
-            product:state=>state.product
-        }),
-        store,
+        computed:{
+            ...mapGetters({
+                product: 'createshop_product',
+            })
+        },
         methods:{
             handleUpload(){
 
             },
             saveData(){
-
+                console.log(this.$store)
+                this.$store.dispatch('saveData1')
+//                console.log(this.product)
+//                Util.ajax({
+//                    method:'post',
+//                    url:'http://192.168.31.204:8090/portal/smsCode',
+//                    data:{
+//                        phone:'18030638805'
+//                    }
+//                }).then(res=>{
+//                    console.log(res)
+//                }).catch(err=>{
+//                    console.log(err.message)
+//                })
             },
             previewData(){
 
@@ -154,12 +125,12 @@
 
             },
             addScale(){
-                store.commit('addScale')
+                this.$store.dispatch('addScale')
             },
             deleteScale(index,event){
 //                console.log(index)
 //                console.log(event)
-                store.commit('deleteScale',index)
+                this.$store.dispatch('deleteScale',index)
             }
         }
     }
