@@ -1,0 +1,29 @@
+.tabBar-container {
+  display: flex;
+  height: 49px;
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  border-top: 0.5px solid #ddd;
+  .tab-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .tab-img {
+    height: 28px;
+    display: block;
+    width: 28px;
+  }
+  .tab-name {
+    font-size: 11px;
+    color: #000;
+  }
+  a {
+    text-decoration: none
+  }
+  .single-atag {
+    text-align: center;
+  }
+}

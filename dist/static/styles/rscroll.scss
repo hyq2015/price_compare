@@ -1,0 +1,30 @@
+.R-inifinite-scroll{
+  .Rscroller-content{
+    .single-circle-card:first-of-type{
+      margin-top: 0;
+    }
+  }
+  .pull-to-refresh{
+    position: absolute;top: 0;left: 0;height: 50px;width: 100%;
+    text-align: center;background-color:transparent;color: #00c8fb;
+    display: flex;flex-direction: column;
+    justify-content: center;align-items: center;
+  }
+  .pull-refresh-img{
+    width: 40px;height: 40px;
+  }
+  .hasTransition{
+    transition:all .4s;
+  }
+  .refreshingLoader{
+    animation:inifiniteRotate .6s linear infinite forwards;
+  }
+}
+@keyframes inifiniteRotate{
+  0%{
+    transform:rotateZ(0deg);
+  }
+  100%{
+    transform:rotateZ(360deg);
+  }
+}

@@ -1,0 +1,35 @@
+.page-more{
+  padding: 15px 15px 60px 15px;
+  box-sizing: border-box;
+  .page-intro{
+    font-size: 14px;
+    margin-left:5px;
+  }
+  .single-card{
+    width:100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top:10px;
+    position: relative;
+  }
+  .card-img{
+    width:100%;
+    height: 100%;
+  }
+  .light-btn{
+    box-shadow: 0 0 20px 5px #ddd;
+    background-color: white;
+    color: black;
+    border-radius: 35px;
+    width:75px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    position: absolute;
+    bottom:20px;
+    right:10px;
+    z-index: 10;
+  }
+}

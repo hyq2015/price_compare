@@ -1,0 +1,125 @@
+$redColor:#ff5a50;
+$blackColor:#131314;
+$pinkColor:#ffe5cc;
+.page-rank{
+  padding: 0 15px;
+  .normal-txt{
+    color: $blackColor;
+  }
+  .my-rank{
+    text-align: center;
+  }
+  .txt{
+    font-size: 12px;
+  }
+  .rank-no{
+    text-align: center;
+    color: $redColor;
+    font-size: 24px;
+  }
+  .rank-glance{
+    padding: 20px 0;
+    position: relative;
+    &:after{
+      content:" ";
+      position: absolute;
+      bottom:0;
+      left:-15px;
+      right:-15px;
+      border-bottom:1px solid #eeeeee;
+      transform: scaleY(.5);
+    }
+  }
+  .rank-detail-data{
+    padding: 20px 0 0 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+  }
+  .internet-rank{
+    margin-top:20px;
+  }
+  .rank-menu{
+    display: flex;
+    justify-content: center;
+    .active{
+      background-color: $pinkColor;
+      color: $redColor;
+      border-radius: 26px;
+    }
+    .normal{
+      background-color: #ffffff;
+      color:$blackColor;
+      border-radius: 0;
+    }
+  }
+  .rank-menu_item{
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+  }
+  .rank-item{
+    background-color: $pinkColor;
+    border-radius: 4px;
+    position: relative;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:10px;
+    &:first-of-type{
+      margin-top:0;
+    }
+  }
+  .user-info{
+    display: flex;
+    align-items: center;
+    max-width: 160px;
+  }
+  .earn-amount{
+    flex:1;
+    color: $redColor;
+    font-size: 14px;
+    text-align: right;
+    font-weight: bold;
+  }
+  .user-name{
+    color: $redColor;
+    font-size: 13px;
+    font-weight: bold;
+    word-break: break-all;
+  }
+  .user-avatar{
+    width:36px;
+    height: 36px;
+    border-radius: 100%;
+    max-width: 36px;
+    min-width:36px;
+    margin-right:5px;
+  }
+  .rank-tag{
+    min-width:28px;
+    text-align: center;
+    font-size: 12px;
+    background-color:$redColor;
+    color: #ffffff;
+    border-radius: 4px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    left:-8px;
+    top:8px;
+    z-index: 10;
+  }
+  .bottomloader{
+    text-align: center;color: #666;
+    padding: 15px 0;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .list-data{
+    position: relative;
+  }
+}

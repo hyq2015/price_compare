@@ -1,0 +1,67 @@
+.single-card{
+  background-color: #ffffff;
+  width:100%;
+  box-shadow: 0 0 20px rgba(0,0,0,.1);
+  border-radius: 4px;
+  .card-header{
+    display: flex;
+    padding: 17px;
+    box-sizing: border-box;
+    align-items: center;
+    position: relative;
+    min-height: 100px;
+    &:after{
+      content:"";
+      position: absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      border-bottom:1px solid #eeeeee;
+      transform: scaleY(0.5);
+    }
+  }
+  .appcard-avatar{
+    width:60px;
+    height: 60px;
+    max-width: 60px;
+    border-radius: 4px;
+    margin-right:18px;
+  }
+  .app-name{
+    color: #131314;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .app-intro{
+    color: #999999;
+    font-size: 12px;
+    text-align: left;
+    margin-top:5px;
+  }
+  .play-btn{
+    width:100px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+    color: #ffffff;
+    font-size: 12px;
+    background-color: #ff5a50;
+    border-radius: 30px;
+    position: absolute;
+    bottom:-13px;
+    left:50%;
+    margin-left:-50px;
+    z-index: 10;
+  }
+  .play-intro{
+    color: #ff5a50;
+    font-size: 13px;
+    word-break: break-all;
+    padding: 20px 17px;
+    text-align: left;
+    min-height: 80px;
+    box-sizing: border-box;
+  ;
+  }
+}
